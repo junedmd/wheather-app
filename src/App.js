@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import Imgwind from "./image/weather.png"
+import Imgvisibility from "./image/visibility.png"
+import Imghumidity from "./image/humidity.png"
 import axios from 'axios';
 function App() {
 
@@ -37,6 +40,25 @@ function App() {
           }}/>
           <h1 className='p'> {weatherData?.name}</h1>
           <h1 className='pa'> {(weatherData?.main?.temp-273).toFixed(2)} °C</h1>
+
+          <div className='div-container'>
+              <div className='box'>
+                <span className='text1'> Wind</span><br/>
+                <img src={Imgwind}  className='img' /><br/>
+                <h1 className='text2' > {(weatherData?.wind?.speed)} km/h</h1>
+              </div>
+              <div className='box'>
+              <span className='text1'> Versibility </span><br/>
+                <img src={Imgvisibility}  className='img' /><br/>
+                    <h1 className='text2'>{(weatherData?.visibility)}Mtr </h1>
+              </div>
+              <div className='box'>
+              <span className='text1'> Humidity </span><br/>
+                <img src={Imghumidity} className='img' /><br/>
+                 <h1 className='text2'>{(weatherData?.main?.humidity)}°F </h1>
+              </div>
+
+          </div>
       </div>
 
 
